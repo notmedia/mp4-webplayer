@@ -1,12 +1,4 @@
-angular.module('app', [
-  'ui.router'
-]).config(($stateProvider, $urlRouterProvider) => {
-  $urlRouterProvider.otherwise('/');
+const app = angular.module('client', []);
 
-  $stateProvider.state('app', {
-    url: '/',
-    templateUrl: 'views/index.html'
-  });
-}).run(() => {
-
+app.run(() => {
 });
