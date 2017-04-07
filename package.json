@@ -1,0 +1,36 @@
+{
+  "name": "mp4-webplayer",
+  "version": "1.0.0",
+  "description": "SolarJob test",
+  "main": "dist/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notmedia/mp4-webplayer.git"
+  },
+  "author": "Alexey Vasyukov (vasyukov.alexey.v@gmail.com)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/notmedia/mp4-webplayer/issues"
+  },
+  "homepage": "https://github.com/notmedia/mp4-webplayer#readme",
+  "devDependencies": {
+    "babel-eslint": "^7.2.1",
+    "babel-preset-es2015": "^6.24.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base-hf": "^1.10.2",
+    "eslint-plugin-import": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-eslint": "^3.0.1",
+    "gulp-jade": "^1.1.0",
+    "gulp-newer": "^1.3.0",
+    "gulp-nodemon": "^2.2.1"
+  },
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
+  }
+}
