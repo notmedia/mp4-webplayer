@@ -33,7 +33,7 @@ gulp.task('jade', () => {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('build', ['copy'], () => {
+gulp.task('build', ['jade', 'copy'], () => {
   gulp.src([...paths.js], { base: '.' })
     .pipe(newer('dist'))
     .pipe(babel())
