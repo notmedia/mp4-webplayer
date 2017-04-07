@@ -6,9 +6,9 @@ import jade from 'gulp-jade';
 import nodemon from 'gulp-nodemon';
 
 const paths = {
-  js: ['./**/*.js', '!dist/**', '!node_modules/**', '!public/lib/**'],
-  static: ['./package.json', 'public/lib/**'],
-  views: ['./public/views/*']
+  js: ['./**/*.js', '!dist/**', '!node_modules/**', '!public/assets/lib/**'],
+  static: ['./package.json', 'public/assets/lib/**'],
+  views: ['./public/**/*.jade']
 };
 
 gulp.task('lint', () => {
