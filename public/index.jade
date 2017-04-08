@@ -13,7 +13,8 @@ html(ng-app='client')
           h4 Select the video please :)
         .videoList.col-lg-3.col-md-4.col-sm-4.col-xs-12(ng-controller='main')
           .list-group              
-              a.list-group-item.ng-cloak(ng-class='{active: selectedVideo == video}', ng-repeat='video in videos', ng-click='selectVideo(video)') {{ video }}
+              a.list-group-item.ng-cloak(ng-class='{active: selectedVideo == video.name}', ng-repeat='video in videos', ng-click='selectVideo(video.name)')
+                h4 {{ video.name }}
   script(type='text/javascript', src='./assets/lib/angular/angular.min.js')
   script(type='text/javascript', src='./assets/lib/jquery/dist/jquery.min.js', charset="UTF-8")    
   script(type='text/javascript', src='./assets/lib/bootstrap/dist/js/bootstrap.min.js', charset="UTF-8")
