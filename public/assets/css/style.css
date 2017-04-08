@@ -16,6 +16,7 @@
   height: 40vh;
   background-color: rgba(48,48,48,0.9);
   color: white;
+  text-align: center;
 }
 
 .videoList {
@@ -35,4 +36,8 @@
   .videoList {
     height: 40vh;
   }
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }

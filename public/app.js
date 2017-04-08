@@ -9,7 +9,7 @@ app.factory('socket', (socketFactory) => {
 app.controller('main', ($scope, socket) => {
   $scope.videos = [];
   socket.on('setVideos', data => {
-    $scope.videos = data;    
+    $scope.videos = data;
   });
 });
 
