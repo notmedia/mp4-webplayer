@@ -8,6 +8,7 @@
     "import"
   ],
   "rules": {
+    "no-param-reassign": ["error", { "props": false }],
     "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
     "indent": [2, 2]
   }
