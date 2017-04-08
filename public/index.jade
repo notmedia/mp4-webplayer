@@ -12,8 +12,8 @@ html(ng-app='client')
           h3 Hello, dear reviewer!
           h4 Select the video please :)
         .videoList.col-lg-3.col-md-4.col-sm-4.col-xs-12(ng-controller='main')
-          .list-group(ng-repeat='video in videos')
-            a.list-group-item.ng-cloak {{ video }}
+          .list-group              
+              a.list-group-item.ng-cloak(ng-repeat='video in videos') {{ video }}
   script(type='text/javascript', src='./assets/lib/angular/angular.min.js')
   script(type='text/javascript', src='./assets/lib/jquery/dist/jquery.min.js', charset="UTF-8")    
   script(type='text/javascript', src='./assets/lib/bootstrap/dist/js/bootstrap.min.js', charset="UTF-8")
