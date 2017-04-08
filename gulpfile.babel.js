@@ -7,7 +7,7 @@ import nodemon from 'gulp-nodemon';
 
 const paths = {
   js: ['./**/*.js', '!dist/**', '!node_modules/**', '!public/assets/lib/**'],
-  static: ['./package.json', 'public/assets/lib/**', 'public/assets/**'],
+  static: ['./package.json', 'public/assets/lib/**', 'public/assets/**', 'videos/**'],
   views: ['./public/**/*.jade']
 };
 
