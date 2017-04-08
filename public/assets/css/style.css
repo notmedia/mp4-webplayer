@@ -26,6 +26,14 @@
   overflow-y: scroll;
 }
 
+.list-group {  
+  margin-bottom: 0px !important;
+}
+
+.list-group-item {
+  border-radius: 0px !important;
+}
+
 @media (min-width: 993px) {
   .player {
     height: 50vh;
