@@ -6,9 +6,30 @@ app.factory('socket', (socketFactory) => {
   });
 });
 
-app.controller('main', ($scope, socket) => {
-  $scope.videos = [];
-  $scope.selectedVideo = '';
+app.factory('playlist', ($rootScope) => {
+  let videos = [];
+  let selectedVideo = '';
+
+  return {
+    getVideos: function () {
+      return videos;
+    },
+    setVideos: function (data) {
+      videos = data;
+    },
+    getSelectedVideo: function () {
+      return selectedVideo;
+    },
+    setSelectedVideo: function (value) {
+      selectedVideo = value;
+      $rootScope.$broadcast('setSelectedVideo');
+    }
+  };
+});
+
+app.controller('main', ($scope, socket, playlist) => {
+  $scope.videos = playlist.getVideos();
+  $scope.selectedVideo = playlist.getSelectedVideo();
 
   socket.on('setVideos', data => {
     $scope.videos = data;
@@ -17,9 +38,30 @@ app.controller('main', ($scope, socket) => {
   $scope.selectVideo = (name) => {
     $scope.selectedVideo = name;
   };
+
+  $scope.$watch('videos', (data, old) => {
+    playlist.setVideos(data);
+  });
+
+  $scope.$watch('selectedVideo', (name, old) => {
+    playlist.setSelectedVideo(name);
+  });
 });
 
-app.controller('player', (socket) => {
+app.controller('player', ($scope, socket, playlist) => {
+  $scope.selectedVideo = playlist.getSelectedVideo();
+
+  $scope.play = () => {
+
+  };
+
+  $scope.pause = () => {
+
+  };
+
+  $scope.$on('setSelectedVideo', (event, args) => {
+    $scope.selectedVideo = playlist.getSelectedVideo();
+  });
 });
 
 app.run((socket) => {

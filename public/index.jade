@@ -7,8 +7,8 @@ html(ng-app='client')
     link(rel='stylesheet', href='./assets/lib/bootstrap/dist/css/bootstrap.min.css')
   body
     .container-fluid
-      .row(ng-controller='main')
-        .player.ng-cloak.col-lg-9.col-md-8.col-sm-8.col-xs-12
+      .row
+        .player.ng-cloak.col-lg-9.col-md-8.col-sm-8.col-xs-12(ng-controller='player')
           .vertical-align-wrapper(ng-if='!selectedVideo')
             .greeting-text
               h2 Hello, dear reviewer!
@@ -16,7 +16,7 @@ html(ng-app='client')
           .vertical-align-wrapper(ng-if='selectedVideo')
             .greeting-text
               h3 PLAY
-        .video-list.ng-cloak.col-lg-3.col-md-4.col-sm-4.col-xs-12
+        .video-list.ng-cloak.col-lg-3.col-md-4.col-sm-4.col-xs-12(ng-controller='main')
           .video-list-header.panel.panel-default
             .panel-heading Playlist
           .list-group              
