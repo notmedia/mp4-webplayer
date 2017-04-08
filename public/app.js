@@ -19,7 +19,7 @@ app.controller('main', ($scope, socket) => {
   };
 });
 
-app.controller('player', (socket) => {
+app.controller('player', (socket) => {  
 });
 
 app.run((socket) => {
