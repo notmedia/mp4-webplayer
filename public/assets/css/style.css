@@ -31,11 +31,18 @@
   text-align: center;  
 }
 
-.videoList {
+.video-list {
   padding: 0 !important;
   display: table-cell;
   height: 50vh;
   overflow-y: scroll;
+}
+
+.video-list-header {
+  margin-bottom: 0px !important;
+  border-bottom: 0px !important;
+  text-align: center;
+  font-size: 15px;
 }
 
 .list-group {
@@ -53,7 +60,7 @@
 }
 
 @media (max-width: 992px) {
-  .videoList {
+  .video-list {
     height: 40vh;
   }
 }

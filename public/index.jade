@@ -9,14 +9,16 @@ html(ng-app='client')
     .container-fluid
       .row(ng-controller='main')
         .player.ng-cloak.col-lg-9.col-md-8.col-sm-8.col-xs-12
-          div.vertical-align-wrapper(ng-if='!selectedVideo')
-            div.greeting-text
+          .vertical-align-wrapper(ng-if='!selectedVideo')
+            .greeting-text
               h2 Hello, dear reviewer!
               h3 Select the video please :)
-          div.vertical-align-wrapper(ng-if='selectedVideo')
-            div.greeting-text
+          .vertical-align-wrapper(ng-if='selectedVideo')
+            .greeting-text
               h3 PLAY
-        .videoList.ng-cloak.col-lg-3.col-md-4.col-sm-4.col-xs-12
+        .video-list.ng-cloak.col-lg-3.col-md-4.col-sm-4.col-xs-12
+          .video-list-header.panel.panel-default
+            .panel-heading Playlist
           .list-group              
               a.list-group-item(ng-class='{active: selectedVideo == video.name}', ng-repeat='video in videos', ng-click='selectVideo(video.name)')
                 h4 {{ video.name }}
