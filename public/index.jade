@@ -7,13 +7,18 @@ html(ng-app='client')
     link(rel='stylesheet', href='./assets/lib/bootstrap/dist/css/bootstrap.min.css')
   body
     .container-fluid
-      .row
-        .player.col-lg-9.col-md-8.col-sm-8.col-xs-12(ng-controller='player')
-          h3 Hello, dear reviewer!
-          h4 Select the video please :)
-        .videoList.col-lg-3.col-md-4.col-sm-4.col-xs-12(ng-controller='main')
+      .row(ng-controller='main')
+        .player.ng-cloak.col-lg-9.col-md-8.col-sm-8.col-xs-12
+          div.vertical-align-wrapper(ng-if='!selectedVideo')
+            div.greeting-text
+              h2 Hello, dear reviewer!
+              h3 Select the video please :)
+          div.vertical-align-wrapper(ng-if='selectedVideo')
+            div.greeting-text
+              h3 PLAY
+        .videoList.ng-cloak.col-lg-3.col-md-4.col-sm-4.col-xs-12
           .list-group              
-              a.list-group-item.ng-cloak(ng-class='{active: selectedVideo == video.name}', ng-repeat='video in videos', ng-click='selectVideo(video.name)')
+              a.list-group-item(ng-class='{active: selectedVideo == video.name}', ng-repeat='video in videos', ng-click='selectVideo(video.name)')
                 h4 {{ video.name }}
   script(type='text/javascript', src='./assets/lib/angular/angular.min.js')
   script(type='text/javascript', src='./assets/lib/jquery/dist/jquery.min.js', charset="UTF-8")    
