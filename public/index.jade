@@ -1,10 +1,15 @@
 doctype html
 html(ng-app='client')
   head
-    title Template
+    title mp4-webplayer
+    link(rel='stylesheet', href='./assets/lib/bootstrap/dist/css/bootstrap.min.css')
   body
-    h1 Hello #{name}
-
+    .container
+      .row
+        .col(ng-controller='main')
+          .list-group(ng-repeat='video in videos')
+            a.list-group-item
+              h4 {{video}}
   script(type='text/javascript', src='./assets/lib/angular/angular.min.js')
   script(type='text/javascript', src='./assets/lib/jquery/dist/jquery.min.js', charset="UTF-8")    
   script(type='text/javascript', src='./assets/lib/bootstrap/dist/js/bootstrap.min.js', charset="UTF-8")

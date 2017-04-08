@@ -10,7 +10,9 @@ const io = socketio(server, { 'transports': ['websocket'] });
 app.use(express.static(path.join(__dirname, '/public')));
 
 io.on('connection', socket => {
-  console.log('connection succeeded');
+  socket.on('getVideos', () => {
+    socket.emit('setVideos', [1, 2, 3, 4, 5]);
+  });
 });
 
 server.listen(8080);

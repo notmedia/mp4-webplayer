@@ -6,16 +6,19 @@ app.factory('socket', (socketFactory) => {
   });
 });
 
-app.controller('main', () => {
-
+app.controller('main', ($scope, socket) => {
+  $scope.videos = [];
+  socket.on('setVideos', data => {
+    $scope.videos = data;    
+  });
 });
 
-app.controller('video', () => {
+app.controller('video', (socket) => {
 
 });
 
 app.run((socket) => {
   socket.on('connect', () => {
-    console.log('connected');
+    socket.emit('getVideos');
   });
 });
