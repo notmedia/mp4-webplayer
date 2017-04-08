@@ -13,7 +13,7 @@ app.controller('main', ($scope, socket) => {
   });
 });
 
-app.controller('video', (socket) => {
+app.controller('player', (socket) => {
 
 });
 

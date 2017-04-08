@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 io.on('connection', socket => {
   socket.on('getVideos', () => {
-    socket.emit('setVideos', [1, 2, 3, 4, 5]);
+    socket.emit('setVideos', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   });
 });
 
