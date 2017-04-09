@@ -15,4 +15,8 @@ function get(path, callback) {
   });
 }
 
-export default { get };
+function watch(path, name) {
+  return fs.createReadStream(`${path}/${name}.mp4`);
+}
+
+export default { get, watch };

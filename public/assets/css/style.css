@@ -18,6 +18,11 @@
   background-color: rgba(48,48,48,0.9);
 }
 
+video {
+  height: 100%;
+  width: 100%;
+}
+
 .vertical-align-wrapper {
   display: table;
   height: 100%;
