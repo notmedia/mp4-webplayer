@@ -21,9 +21,10 @@ html(ng-app='client')
           .list-group              
               a.list-group-item(ng-class='{active: selectedVideo == video.name}', ng-repeat='video in videos', ng-click='selectVideo(video.name)')
                 h4 {{ video.name }}
+  script(type='text/javascript', src='./assets/lib/lodash/dist/lodash.min.js')
   script(type='text/javascript', src='./assets/lib/angular/angular.min.js')
   script(type='text/javascript', src='./assets/lib/jquery/dist/jquery.min.js', charset="UTF-8")    
   script(type='text/javascript', src='./assets/lib/bootstrap/dist/js/bootstrap.min.js', charset="UTF-8")
   script(type='text/javascript', src='./assets/lib/socket.io-client/dist/socket.io.min.js', charset="UTF-8")
-  script(type='text/javascript', src='./assets/lib/angular-socket-io/socket.js', charset="UTF-8")    
+  script(type='text/javascript', src='./assets/lib/angular-socket-io/socket.js', charset="UTF-8")
   script(type='text/javascript', src='./app.js', charset="UTF-8")
