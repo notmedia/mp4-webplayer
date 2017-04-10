@@ -9,7 +9,9 @@ function get(path, callback) {
       callback(error);
     } else {
       files = _.reduce(files, (result, file) => {
-        result.push({ name: _.split(file, '.mp4')[0] });
+        if (_.endsWith(file, '_dashinit.mp4')) {
+          result.push({ name: _.split(file, '_dashinit.mp4')[0] });
+        }
         return result;
       }, []);
       callback(null, files);
@@ -18,7 +20,7 @@ function get(path, callback) {
 }
 
 function watch(path, name) {
-  return fs.createReadStream(`${path}/${name}.mp4`, { highWaterMark: CHUNK_SIZE });
+  return fs.createReadStream(`${path}/${name}_dashinit.mp4`, { highWaterMark: CHUNK_SIZE });
 }
 
 export default { get, watch };

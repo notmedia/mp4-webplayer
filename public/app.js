@@ -11,18 +11,18 @@ app.factory('playlist', ($rootScope) => {
   let selectedVideo = '';
 
   return {
-    getVideos: function () {
+    getVideos: () => {
       return videos;
     },
-    setVideos: function (data) {
+    setVideos: (data) => {
       videos = data;
     },
-    getSelectedVideo: function () {
+    getSelectedVideo: () => {
       return selectedVideo;
     },
-    setSelectedVideo: function (value) {
+    setSelectedVideo: (value) => {
       selectedVideo = value;
-      $rootScope.$broadcast('setSelectedVideo');
+      $rootScope.$broadcast('selectVideo');
     }
   };
 });
@@ -48,20 +48,41 @@ app.controller('main', ($scope, socket, playlist) => {
   });
 });
 
-app.controller('player', ($scope, socket, playlist) => {
+app.controller('player', ($rootScope, $scope, socket, playlist) => {
   $scope.selectedVideo = playlist.getSelectedVideo();
 
-  $scope.play = () => {
+  $scope.downloadAndPlay = () => {
+    let player = document.querySelector('video');
+    player.autoplay = true;
 
+    let mediaSource = new MediaSource;
+    player.src = window.URL.createObjectURL(mediaSource);
+    mediaSource.addEventListener('sourceopen', () => {
+      let sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+      socket.emit('watchVideo', $scope.selectedVideo);
+
+      socket.on('chunk', (data) => {
+        if (data.name == $scope.selectedVideo) {
+          sourceBuffer.appendBuffer(data.chunk);
+          console.log(`${data.name} : chunk`);
+        }
+      });
+
+      socket.on('end', (data) => {
+        console.log(`${data.name} : end`);
+      });
+    });
   };
 
-  $scope.pause = () => {
-
-  };
-
-  $scope.$on('setSelectedVideo', (event, args) => {
+  $scope.$on('selectVideo', (event, args) => {
     $scope.selectedVideo = playlist.getSelectedVideo();
-      socket.emit('stopStreaming');
+    let player = document.querySelector('video');
+    if (!_.isNil(player)) {
+      player.src = '';
+    }
+    socket.removeAllListeners('chunk');
+    socket.removeAllListeners('end');
+    socket.emit('stopStreaming');
   });
 });
 

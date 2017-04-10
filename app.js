@@ -17,7 +17,16 @@ io.on('connection', socket => {
     });
   });
 
-  socket.on('watchVideo', (data) => {
+  socket.on('watchVideo', name => {
+    const stream = videos.watch('videos', name);
+
+    stream.on('data', chunk => {
+      socket.emit('chunk', { chunk, name });
+    });
+
+    stream.on('end', () => {
+      socket.emit('end', { name });
+    });
 
     socket.on('stopStreaming', () => {
       stream.close();
