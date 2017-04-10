@@ -18,6 +18,10 @@ io.on('connection', socket => {
   });
 
   socket.on('watchVideo', (data) => {
+
+    socket.on('stopStreaming', () => {
+      stream.close();
+    });
   });
 });
 

@@ -43,7 +43,7 @@ video {
   overflow-y: scroll;
 }
 
-.video-list-header {
+.playlist-header {
   margin-bottom: 0px !important;
   border-bottom: 0px !important;
   text-align: center;

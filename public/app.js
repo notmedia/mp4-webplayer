@@ -61,6 +61,7 @@ app.controller('player', ($scope, socket, playlist) => {
 
   $scope.$on('setSelectedVideo', (event, args) => {
     $scope.selectedVideo = playlist.getSelectedVideo();
+      socket.emit('stopStreaming');
   });
 });
 
