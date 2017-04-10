@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import fs from 'fs';
 
-const CHUNK_SIZE = 128*1024;
+const CHUNK_SIZE = 128 * 1024;
 
 function get(path, callback) {
   fs.readdir(path, (error, files) => {
