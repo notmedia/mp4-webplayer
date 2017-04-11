@@ -31,7 +31,7 @@ ___________  ___________  ___________  ___________
 ```
 
 moov - general data (codecs, vide chunks size etc..)   
-moof - metada of current video fragment  
+moof - metadata of current video fragment  
 mdat - video fragment  
 
 For this way, fragment original mp4 videos using [MP4Box](https://gpac.wp.imt.fr/2012/02/01/dash-support/) 
