@@ -53,7 +53,6 @@ app.controller('player', ($rootScope, $scope, socket, playlist) => {
 
   $scope.downloadAndPlay = () => {
     let player = document.querySelector('video');
-    player.autoplay = true;
 
     let mediaSource = new MediaSource;
     player.src = window.URL.createObjectURL(mediaSource);
@@ -62,9 +61,9 @@ app.controller('player', ($rootScope, $scope, socket, playlist) => {
       socket.emit('watchVideo', $scope.selectedVideo);
 
       socket.on('chunk', (data) => {
+        console.log(`${data.name} : chunk`);
         if (data.name == $scope.selectedVideo) {
-          sourceBuffer.appendBuffer(data.chunk);
-          console.log(`${data.name} : chunk`);
+          sourceBuffer.appendBuffer(data.chunk);          
         }
       });
 
@@ -79,9 +78,12 @@ app.controller('player', ($rootScope, $scope, socket, playlist) => {
     let player = document.querySelector('video');
     if (!_.isNil(player)) {
       player.src = '';
-    }
-    socket.removeAllListeners('chunk');
-    socket.removeAllListeners('end');
+      if (!_.isEmpty($scope.selectedVideo)) {
+        $scope.downloadAndPlay();
+      }
+    }    
+    socket.removeAllListeners('chunk'); // not working in angular-socket.io
+    socket.removeAllListeners('end'); // not working in angular-socket.io
     socket.emit('stopStreaming');
   });
 });
