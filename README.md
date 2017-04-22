@@ -54,7 +54,7 @@ Browser should support [Media Source Extensions API](https://www.w3.org/TR/media
 Now, we can stream static mp4 videos and go live. 
 
 
-# Instalation
+# Installation
 
 ```
 cd mp4-webplayer
